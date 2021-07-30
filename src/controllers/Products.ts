@@ -1,4 +1,4 @@
-import { createReadStream, readFile, readFileSync } from "fs";
+import { createReadStream, writeFile } from "fs";
 import { resolve } from "path";
 import { createInterface } from "readline";
 
@@ -14,6 +14,10 @@ class ProductsController {
     let products = [];
 
     for await (const line of rl) {
+      writeFile("myjsonfile.json", JSON.parse(line), () =>
+        console.log("ended")
+      ); // write it back
+
       products.push(JSON.parse(line));
     }
 
