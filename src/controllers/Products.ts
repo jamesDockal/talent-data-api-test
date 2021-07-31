@@ -8,34 +8,23 @@ class ProductsController {
   }
 
   async getProductsByOrganizationNameAndTags(req: Request, res: Response) {
-    const { organizationName } = req.params;
-    console.log("organizationName", organizationName);
-
     // getting that tags of the query
     const tagsQuery = req.query.tags;
     if (!tagsQuery) {
       return res.status(400).json({
-        error: "No tag query provided!",
+        error: "No tags query provided!",
       });
     }
 
-    // getting that tags that was given
+    // if it was given more than 1 tags
     const tags = tagsQuery.toString().split(",");
 
-    // return res.json({ tags, a: tags.length });
-    // if it was provided a organization that doesnt exists
-    const organization = allOrganizations.find(
-      (organization) => organization.name == organizationName
-    );
-    if (!organization) {
-      return res.status(404).json({
-        error: `Organization '${organizationName}' not found!`,
-      });
-    }
+    // the organization was get in the middleware userHasAccessToTheProducts
+    const { organization } = res.locals;
 
     // search products of the given organization name
     const products = allProducts.filter(
-      (product) => product.department == organizationName
+      (product) => product.department == organization.name
     );
 
     // run all the products to see if the tags of each product has any of the given tags
@@ -43,11 +32,13 @@ class ProductsController {
     // run all products
     const productsWithTheTag = products.filter((product) => {
       // run in all the tags of the product
+
       for (const productTag of product.tags) {
         // run all the given query tag
         for (const queryTag of tags) {
           // see if the given query tag exist on product tags
           if (queryTag == productTag) {
+            // return res.json({ product });
             return true;
           }
         }

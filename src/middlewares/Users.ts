@@ -52,7 +52,7 @@ class UserMiddleware {
       const userLevel = await verify(token, secretKey);
       console.log("user level", userLevel);
 
-      // res.user_level = userLevel;
+      res.locals.loggedUserLevel = userLevel;
       return next();
     } catch (e) {
       return res.status(400).json({ error: "Invalid Token" });
