@@ -6,6 +6,8 @@ const app = express();
 
 app.use(express.json());
 
+// CreateProductsJson();
+
 app.use("/products", productsRouter);
 app.use("/users", userRouter);
 

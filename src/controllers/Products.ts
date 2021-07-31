@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import allProducts from "../products.json";
+import allProducts from "../fixtures/products.json";
 import allOrganizations from "../fixtures/organization.json";
 
 class ProductsController {

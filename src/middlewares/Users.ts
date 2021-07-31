@@ -50,7 +50,6 @@ class UserMiddleware {
     try {
       const secretKey = process.env.SECRET_KEY || "some_secret_key";
       const userLevel = await verify(token, secretKey);
-      console.log("user level", userLevel);
 
       res.locals.loggedUserLevel = userLevel;
       return next();

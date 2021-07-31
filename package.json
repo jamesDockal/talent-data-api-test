@@ -1,9 +1,10 @@
 {
   "name": "talent-data-api-test",
   "version": "1.0.0",
-  "description": "Desenvolver uma API, utilizando a **stack definida durante o processo seletivo**, para entregar de acordo com os requisitos descritos abaixo.",
+  "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart:dev": "tsnd src/utils/CreateProductsJson.ts",
     "start:dev": "tsnd src/server.ts"
   },
   "repository": {
