@@ -6,13 +6,13 @@ To install the project dependencies </br>
 
 ### `npm run start:dev`
 
-It gonna start the server in the localhost on port 3000 by default
+Start the server in the localhost on port 3000 by default
 
 > ## Routes
 >
 > > ### POST: `users/login`
 > >
-> > login the user and getting in the response the token
+> > Login the user and getting in the response the token
 > >
 > > #### Body
 > >
@@ -31,9 +31,9 @@ It gonna start the server in the localhost on port 3000 by default
 > > }
 > > ```
 >
-> > ### GET `products/
+> > ### GET `products/`
 > >
-> > get all products
+> > Get all the products.
 > >
 > > #### Example Response:
 > >
