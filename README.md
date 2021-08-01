@@ -68,7 +68,7 @@ Start the server in the localhost on port 3000 by default
 
 > > ### GET `products/{organization_name}?tags={any},{tag}`
 > >
-> > Get all products of an organization that has the provided tags on the Query Url
+> > Get all products of an organization that has the provided tags on the Query URL
 > >
 > > #### Example
 > >
