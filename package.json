@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "products": "tsnd src/utils/CreateProductsJson",
     "prestart:dev": "tsnd src/utils/CreateProductsJson.ts",
     "start:dev": "tsnd src/server.ts"
   },
