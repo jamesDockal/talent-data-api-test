@@ -10,7 +10,7 @@ class UserMiddleware {
         .json({ error: "To login you must provided a email and a password" });
     }
 
-    next();
+    return next();
   }
 
   async isLogged(req: Request, res: Response, next: NextFunction) {

@@ -6,7 +6,7 @@ class ProductMiddleware {
   // and save the organization to the locals
   userHasAccessToTheProducts(req: Request, res: Response, next: NextFunction) {
     const { organizationName } = req.params;
-
+    // the loggedUserLevel was setted in the middleware User(isLogged)
     const { loggedUserLevel } = res.locals;
 
     if (loggedUserLevel == "intern" && organizationName !== "STUFF A") {
@@ -15,6 +15,7 @@ class ProductMiddleware {
       });
     }
 
+    // see if the organization exists
     const organization = allOrganizations.find(
       (organization) => organization.name == organizationName.toString()
     );
@@ -33,6 +34,7 @@ class ProductMiddleware {
       intern: [0, 1, 2],
     };
 
+    // verify if the user has access to the organization that he's trying to access
     const hasAccess = userLevels[loggedUserLevel].filter(
       (userLevel) => organization.level == userLevel
     );
